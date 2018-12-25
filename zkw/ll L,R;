@@ -1,0 +1,17 @@
+ ll L,R;
+    while(~scanf("%lld%lld",&L,&R)){
+
+        ll ans = 0; ll k = sqrt(R+0.5);
+        for(int i=2;i<=sqrt(R+0.5);i++){
+            ll tmp = (L-1)/i;
+            for(ll j=tmp+1;j*i<=R;j++){
+                if(j > k) ans += i + j;
+                else ans += i;
+            }
+        }
+        for(ll i=L;i<=R;i++){
+            if(i>k) ans += 1+i;
+            else ans += 1;
+        }
+        cout << ans << endl;
+    }
